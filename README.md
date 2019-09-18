@@ -50,6 +50,8 @@ npm install class-validator --save
 
 Create your class and put some validation decorators on the properties you want to validate:
 
+创建一个类并且在你想验证的属性上放置一些验证装饰器
+
 ```typescript
 import {validate, validateOrReject, Contains, IsInt, Length, IsEmail, IsFQDN, IsDate, Min, Max} from "class-validator";
 
@@ -78,11 +80,11 @@ export class Post {
 }
 
 let post = new Post();
-post.title = "Hello"; // should not pass
-post.text = "this is a great post about hell world"; // should not pass
-post.rating = 11; // should not pass
-post.email = "google.com"; // should not pass
-post.site = "googlecom"; // should not pass
+post.title = "Hello"; // 不会通过
+post.text = "this is a great post about hell world"; // 不会通过
+post.rating = 11; // 不会通过
+post.email = "google.com"; // 不会通过
+post.site = "googlecom"; // 不会通过
 
 validate(post).then(errors => { // errors is an array of validation errors
     if (errors.length > 0) {
@@ -105,9 +107,11 @@ async function validateOrRejectExample(input) {
 }
 ```
 
-### Passing options
+### Passing options通过选项
 
 The `validate` function optionally expects a `ValidatorOptions` object as a second parameter.
+
+可以选择将 `validatorOptions` 对象作为 `validate` 函数的第二个参数
 
 ```ts
 export interface ValidatorOptions {
